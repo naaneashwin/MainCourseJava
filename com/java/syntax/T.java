@@ -8,6 +8,7 @@ public class T {
 			System.out.print("Enter your string to check palindrom: ");
 			String str=sc.nextLine();
 			str=str+"";
+			sc.close();
 			char ch[] =new char[str.length()];
 			
 			System.out.println("Length of string :"+ch.length);
