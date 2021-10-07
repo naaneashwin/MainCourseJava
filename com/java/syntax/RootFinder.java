@@ -13,13 +13,22 @@ public class RootFinder {
 	     System.out.println(rooter(x,p));
 	    }
 	public static int rooter (int x, int p) {
-		int pow =1;
-	     int ind =0;
-	     while(x>=pow*p) {
-	    	 pow = pow*p;
-	    	 ind ++;
-	     }
+		int in=1;
+		for(int i=1;i<=x;i++ ) {
+			int pow = 1;
+			for(int j=1;j<=p;j++) {
+				pow = pow*i;
+			}
+			if(pow>x) {
+				in = i-1;
+				break;
+			}
+			else if(pow==x) {
+				in = i;
+				break;
+			}
+		}
 	    	
-	     return ind;
+	     return in;
 	}
 }
