@@ -2,29 +2,60 @@ package operators;
 
 public class BestDayToBuyAndSell_A_Stock {
 	public static void main(String[] args) {
-		int p = maxProfit(new int[] {0,8,6,9,3,565});
+		int p = maxProfit(new int[] {3,2,6,5,0,3});
 		System.out.println(p);
 	}
-	    public static int maxProfit(int[] prices) {
-	            int profit = 0;
-	        if(prices.length>=1 && prices.length <=100000){
-	            
-
-	           for(int i=0; i<prices.length;i++){
-	               if(prices[i]>=0 && prices[i]<=10000){
-	                   for(int j=i+1;j<prices.length;j++){
-	                       if(prices[j]-prices[i]>profit){
-	                           profit = prices[j]-prices[i];
+	    public static int maxProfit(int[] a) {
+	        /*int profit = 0;
+	        	for(int i=0; i<a.length;i++){
+	        		for(int j=i+1;j<a.length;j++){
+	                       if(a[j]-a[i]>profit){
+	                           profit = a[j]-a[i];
 	                       }
 	                   }
-	                   
-	                   
-	               }
-	           }
-	            
-	            
-	        }
-	        return profit;
+	        		}
+	        return profit;*/
+	    	
+	    	
+	    	/*int profit=0;
+	    	int maxindex = -1; 
+	    	int minindex = -1;
+	    	int max = -1;
+	    	int min = 10001;
+	    	for(int i=0; i<a.length;i++) {
+	    		if(i!=0) {
+	    			max = Math.max(max, a[i]);
+	    			if(max == a[i]) {
+	    				maxindex=i;
+	    			}
+	    		}
+	    		if(i!=a.length-1) {
+	    			min = Math.min(min, a[i]);
+	    			if(min==a[i]) {
+	    				minindex=i;
+	    			}
+	    		}
+	    		if(minindex>maxindex) {
+	    			max = -1;
+	    		}
+	    		if(max-min>profit && minindex<maxindex) {
+	    			profit = max-min;
+	    		}
+	    	}
+	    	
+	    	
+	    	return profit;*/ //{3,2,6,5,0,3}
+	    	int maxprofit = 0;
+	    	int min = Integer.MAX_VALUE;
+	    	for(int i=0; i<a.length;i++) {
+	    		if(a[i]<min) {
+	    			min = a[i];
+	    		}
+	    		else if(a[i]-min>maxprofit) {
+	    			maxprofit = a[i]-min;
+	    		}
+	    	}
+	    	return maxprofit;
 	    }
 	}
 
