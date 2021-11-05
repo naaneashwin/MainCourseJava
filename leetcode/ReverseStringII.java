@@ -2,40 +2,42 @@ package leetcode;
 
 public class ReverseStringII {
 	public static void main(String[] args) {
-		String s= "abcdefghi";//bacdfeghi
+		String s = "abcdefg";
 		int k = 2;
-		char ch[]=s.toCharArray();
-		if(k>ch.length) {
-			int f=0;
-			int b = ch.length - 1;
-			while(f<=b) {
-				char temp = ch[b];
-				ch[b]=ch[f];
-				ch[f]=temp;
-				f++;
-				b--;
-			}
-		}
-		else {
-			int n=0;
-			while(((n+1)*k-1)<ch.length) {
-				int f=n*k;
-				int b = (n+1)*k-1;
-				while(f<=b) {
-					char temp = ch[b];
-					ch[b]=ch[f];
-					ch[f]=temp;
-					f++;
-					b--;
-				}
-				n+=2;
-			}
-		}
-		String str = "";
-		for(int i=0; i<ch.length;i++) {
-			char m = ch[i];
-			str = str+m;
-		}
-		System.out.println(str);
+		System.out.println(reverseStr(s,k));
 	}
+	public static String reverseStr(String s, int k) {
+		char[] arr = s.toCharArray();
+        int i=0, l = arr.length;
+        if(k>=arr.length){
+            arr = reverser(arr,i,l);
+        }
+        else {
+            int j=0;
+            int start = j*k;
+            int end = start + k;
+            while(end<=arr.length){
+                arr = reverser(arr, start, end);
+                j+=2;
+                start = j*k;
+                end = start+k;
+            }
+            
+        }
+        String sms = "";
+        for(int x=0; x<arr.length; x++){
+            sms+=arr[x];
+        }
+        return sms;
+    }
+    static char[] reverser(char[] arr,int i , int l ){
+        int m = l-1;
+        for(;i<m;i++){
+            char temp = arr[i];
+            arr[i] = arr[m];
+            arr[m]=temp;
+        }
+        return arr;
+        
+    }
 }

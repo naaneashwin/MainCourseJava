@@ -22,6 +22,6 @@ public class swapNumbersUdingXOR {
 		//A= 00000011 -3
 		//B= 00001001 -9
 		
-		System.out.println("After swapping values A = "+A+" and B = "+B);
+	
 	}
 }
